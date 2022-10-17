@@ -1,0 +1,3 @@
+Logika obliczeniowa - Laboratoria
+Naucz się siatek minimalizacji funkcji
+naucz się kod greya
