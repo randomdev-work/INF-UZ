@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <conio.h>
 #include <math.h>
 
 int pierwszy()
@@ -7,25 +6,28 @@ int pierwszy()
     int wiek;
     char imie[20];
     char nazwisko[20];
+
     fflush(stdin);
+    
     printf("Podaj Imie: ");
-    scanf("%s", &imie);
+    scanf("%s", imie);
 
     printf("Podaj Nazwisko: ");
-    scanf("%s", &nazwisko);
+    scanf("%s", nazwisko);
 
     printf("Podaj Wiek: ");
     scanf("%d", &wiek);
 
     printf("\nWitaj %s %s! Masz %d lat.", imie, nazwisko, wiek);
-
     return 0;
 }
 
 int drugi()
 {
     int a, b, c;
+    
     fflush(stdin);
+    
     printf("Podaj A: ");
     scanf("%d", &a);
 
@@ -35,36 +37,27 @@ int drugi()
     printf("Podaj C: ");
     scanf("%d", &c);
 
-    if(a + b > c & a + c > b & b + c >a)
+    if (a+b > c) and (a+c >b) and (b+c >a)
     {
-        if (a == b & a == c & b == c)
-        {
 
-        }
-        else
-        {
-            int p = (a+b+c)/2;
+        double p = (a+b+c) / 2;
 
-            float pole = p*((p-a)*(p-b)*(p-c));
+        double pole = abs(p *(p - a)*(p-b)*(p-c));
 
-            printf("Pole trojkata wynosi: %.2f cm kwadratowych.", sqrt(pole));
+        printf("Pole trojkata wynosi: %f", pole);
 
-        }
-
-        return 0;
     }
     else
     {
-        printf("Trojkat jest niepoprawny");
-        return 1;
+        printf("Trójkąt nie jest prawdziwy");
     }
 
-
+    return 0;
 }
 
 int trzeci()
 {
-    printf("\n");
+    double promien;
     return 0;
 }
 
