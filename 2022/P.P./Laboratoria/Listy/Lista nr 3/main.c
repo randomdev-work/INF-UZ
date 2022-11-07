@@ -27,7 +27,7 @@ void zad2() {
       }
       a++;
    }
-   printf("Liczba lini w stringu: %d \n", lineCount);
+   printf("Liczba linii w stringu: %d \n", lineCount);
 
    int n = 0;
    int wordCount = 1;
