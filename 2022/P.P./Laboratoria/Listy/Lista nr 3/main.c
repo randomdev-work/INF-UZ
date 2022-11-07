@@ -165,7 +165,38 @@ void zad9() {
 }
 
 int main() {
-   //podień nr na dany nr zadania i uruchom
-   zad7();
+   int wybor;
+   printf("Podaj numer zadania (1-9 bez 5): ");
+   scanf("%d", &wybor);
+   switch(wybor) {
+      case 1:
+         zad1();
+         break;
+      case 2:
+         zad2();
+         break;
+      case 3:
+         zad3();
+         break;
+      case 4:
+         zad4();
+         break;
+      case 6:
+         zad6();
+         break;
+      case 7:
+         zad7();
+         break;
+      case 8:
+         zad8();
+         break;
+      case 9:
+         getchar(); // zapobiega pobraniu \0 jako znak działania
+         zad9();
+         break;
+      default:
+         printf("Nie ma takiego zadania");
+         break;
+   }
    return 0;
 }
