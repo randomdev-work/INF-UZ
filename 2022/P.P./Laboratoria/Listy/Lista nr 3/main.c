@@ -1,146 +1,202 @@
 #include <stdio.h>
-#include <math.h>
+#include <stdlib.h>
+#include <string.h>
 
-int is_year_leap(year)
-{
-    return ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0));
+void zad1() {
+   int a;
+   while ((a = getchar()) != EOF) {
+      putchar(a);
+   }
 }
 
-int pierwszy()
-{
-    int c;
+void zad2() {
+   char string[] = "Ala ma kota";  
+   int count = 0;  
+      
+   for(int i = 0; i < strlen(string); i++) {  
+      if(string[i] != ' ') {
+         count++;  
+      }
+   }
+   printf("Liczba znakow w stringu: %d \n", count);
 
-    while ((c = getchar()) != EOF)
-    {
-        putchar(c);
-    }
-    return 0;
+   int a, lineCount = 1;
+   while(string[a] != '\0') {
+      if(string[a] == '\n') {
+            lineCount++;
+      }
+      a++;
+   }
+   printf("Liczba linii w stringu: %d \n", lineCount);
+
+   int n = 0;
+   int wordCount = 1;
+   while(string[n] != '\0') {
+      if(string[n] == ' ' ||
+         string[n] == '\n' ||
+         string[n] == '\t') {
+            wordCount++;
+      }
+      n++;
+   }
+   printf("Liczba slow w stringu: %d \n", wordCount);
 }
 
-int drugi()
-{
-    printf("DRUGA GUNKCJA");
-    return 0;
+
+void zad3() {
+   int n;
+   scanf("%d", &n);
+   printf("%d", n*n*n);
 }
 
-int trzeci()
-{
-    int liczba;
-    printf("podaj liczbe: ");
-    scanf("%d", &liczba);
-
-    printf("Liczba %d podniesiona do potegi trzeciej wynosi %d.", liczba, (liczba * liczba * liczba));
-
-    return 0;
+void zad4() {
+   int a, b, c;
+   scanf("%d %d %d", &a, &b, &c);
+   if(a+b>c && a+c>b && b+c>a) {
+      printf("TAK");
+   } else {
+      printf("NIE");
+   }
 }
 
-int czwarty()
-{
-    float a, b, c;
-
-    fflush(stdin);
-
-    printf("Podaj A: ");
-    scanf("%f", &a);
-
-    printf("Podaj B: ");
-    scanf("%f", &b);
-
-    printf("Podaj C: ");
-    scanf("%f", &c);
-
-    if (a + b > c && a + c > b && b + c > a)
-    {
-        printf("\nTrojkat o wymiarach a-%f b-%f c-%f istnieje.", a, b, c);
-        return 0;
-    }
-
-    printf("\nTrójkąt nie jest prawdziwy.");
-    return -1;
+void zad6() {
+   int a;
+   scanf("%d", &a);
+   printf("%x", a);
 }
 
-int szosty()
-{
-    int n;
+void zad7() {
+   int monthDays[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+   int day, month, days;
 
-    fflush(stdin);
+   printf("Podaj dzień miesiąca: ");
+   scanf("%d", &day);
 
-    printf("\nWprowadz liczbe dziesietna: ");
-    scanf("%d", &n);
+   printf("Podaj miesiąc: ");
+   scanf("%d", &month);
 
-    printf("Liczba %d w systemie szesnastkowymi wynosi: %x ", n, n);
+   if(day < 1 || day > 31 || month < 1 || month > 12) {
+      printf("Niepoprawna data");
+      return;
+   }
 
-    return 0;
+   switch (month){
+   case 1:
+      days = day;
+      break;
+   case 2:
+      days = monthDays[0] + day;
+      break;
+   case 3:
+      days = monthDays[0] + monthDays[1] + day;
+      break;
+   case 4:
+      days = monthDays[0] + monthDays[1] + monthDays[2] + day;
+      break;
+   case 5:
+      days = monthDays[0] + monthDays[1] + monthDays[2] + monthDays[3] + day;
+      break;
+   case 6:
+      days = monthDays[0] + monthDays[1] + monthDays[2] + monthDays[3] + monthDays[4] + day;
+      break;
+   case 7:
+      days = monthDays[0] + monthDays[1] + monthDays[2] + monthDays[3] + monthDays[4] + monthDays[5] + day;
+      break;
+   case 8:
+      days = monthDays[0] + monthDays[1] + monthDays[2] + monthDays[3] + monthDays[4] + monthDays[5] + monthDays[6] + day;
+      break;
+   case 9:
+      days = monthDays[0] + monthDays[1] + monthDays[2] + monthDays[3] + monthDays[4] + monthDays[5] + monthDays[6] + monthDays[7] + day;
+      break;
+   case 10:
+      days = monthDays[0] + monthDays[1] + monthDays[2] + monthDays[3] + monthDays[4] + monthDays[5] + monthDays[6] + monthDays[7] + monthDays[8] + day;
+      break;
+   case 11:
+      days = monthDays[0] + monthDays[1] + monthDays[2] + monthDays[3] + monthDays[4] + monthDays[5] + monthDays[6] + monthDays[7] + monthDays[8] + monthDays[9] + day;
+      break;
+   case 12:
+      days = monthDays[0] + monthDays[1] + monthDays[2] + monthDays[3] + monthDays[4] + monthDays[5] + monthDays[6] + monthDays[7] + monthDays[8] + monthDays[9] + monthDays[10] + day;
+      break;
+   default:
+      break;
+   }
+
+   printf("Podany dzień jest: %d dniem w roku", days);
 }
 
-int month_n[] = {1, 3, 5, 7, 9, 11};
-int month_nn[] = {4, 6, 8, 10, 12};
-
-int siodmy()
-{
-
-    int day, month, year;
-
-    while (day > 31 || day < 1)
-    {
-        printf("\nPodaj dzien: ");
-        scanf("%d", &day);
-    }
-    /**/
-    // 31
-    // 28 lub 29
-    // 31
-    // 30
-    // 31
-    // 30
-    // 31
-    // 30
-    // 31
-    // 30
-    // 31
-    // 30
-    //
-
-    while (month > 12 || month < 1)
-    {
-        printf("\nPodaj miesiac: ");
-        scanf("%d", &month);
-    }
-
-    while (year < 2022)
-    {
-        printf("\nPodaj rok: ");
-        scanf("%d", &year);
-    }
-
-    if (month == 2 && day == 29 && is_year_leap(year) == 0)
-    {
-        print("Nie ma 29 dni w roku nie przestepnym");
-        day = day - 1;
-    }
-
-    return 0;
+void zad8() {
+   int a;
+   scanf("%d", &a);
+   if(a%2 == 0) {
+      printf("Parzysta");
+   } else {
+      printf("Nieparzysta");
+   }
 }
 
-int main()
-{
-    int result[4];
-    int i = 0;
+void zad9() {
+  char znak;
+  double first, second;
+  printf("Wybierz operację (+, -, *, /): ");
+  scanf("%c", &znak);
+  printf("Podaj dwie wartości: ");
+  scanf("%lf %lf", &first, &second);
 
-    // printf("Zadanie 1\n\n");
-    // result[0] = pierwszy();
+  switch (znak) {
+    case '+':
+      printf("%.1lf + %.1lf = %.1lf", first, second, first + second);
+      break;
+    case '-':
+      printf("%.1lf - %.1lf = %.1lf", first, second, first - second);
+      break;
+    case '*':
+      printf("%.1lf * %.1lf = %.1lf", first, second, first * second);
+      break;
+    case '/':
+      if (second == 0) {
+        printf("Nie można dzielić przez 0");
+      } else {
+        printf("%.1lf / %.1lf = %.1lf", first, second, first / second);
+      }
+      break;
+    default:
+      printf("zły znak");
+  }
+}
 
-    // printf("\n\nZadanie 2\n\n");
-    // result[1] = drugi();
-
-    // printf("\n\nZadanie 3\n\n");
-    // result[2] = trzeci();
-
-    // printf("\n\nZadanie 4\n\n");
-    // result[3] = czwarty();
-
-    szosty();
-
-    siodmy();
-    return 0;
+int main() {
+   int wybor;
+   printf("Podaj numer zadania (1-9 bez 5): ");
+   scanf("%d", &wybor);
+   switch(wybor) {
+      case 1:
+         zad1();
+         break;
+      case 2:
+         zad2();
+         break;
+      case 3:
+         zad3();
+         break;
+      case 4:
+         zad4();
+         break;
+      case 6:
+         zad6();
+         break;
+      case 7:
+         zad7();
+         break;
+      case 8:
+         zad8();
+         break;
+      case 9:
+         getchar(); // zapobiega pobraniu \0 jako znak działania
+         zad9();
+         break;
+      default:
+         printf("Nie ma takiego zadania");
+         break;
+   }
+   return 0;
 }
