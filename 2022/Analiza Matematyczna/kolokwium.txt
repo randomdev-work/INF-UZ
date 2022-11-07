@@ -1,0 +1,9 @@
+Materiał obowiązujący na kolokwium nr 1:
+-ograniczoność zbiorów i funkcji;
+-funkcje : dziedzina funkcji, zbiór wartości funkcji, złożenie funkcji, funkcja
+różnowartościowa i funkcja odwrotna, wykresy funkcji;
+zadania 5-13 z listy nr 1;
+- ciągi liczbowe - monotoniczność, obliczanie granic ciągów;
+- szeregi liczbowe - badanie zbieżności szeregów (warunek konieczny
+zbieżności szeregów, kryteria zbieżności, zbieżność bezwzględna);
+wszystkie zadania z listy nr 2 poza zadaniem 2.

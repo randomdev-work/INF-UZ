@@ -10,7 +10,7 @@ int pierwszy()
 {
     int c;
 
-    while((c = getchar()) != EOF)
+    while ((c = getchar()) != EOF)
     {
         putchar(c);
     }
@@ -29,7 +29,7 @@ int trzeci()
     printf("podaj liczbe: ");
     scanf("%d", &liczba);
 
-    printf("Liczba %d podniesiona do potegi trzeciej wynosi %d.", liczba, (liczba*liczba*liczba));
+    printf("Liczba %d podniesiona do potegi trzeciej wynosi %d.", liczba, (liczba * liczba * liczba));
 
     return 0;
 }
@@ -54,7 +54,7 @@ int czwarty()
         printf("\nTrojkat o wymiarach a-%f b-%f c-%f istnieje.", a, b, c);
         return 0;
     }
-    
+
     printf("\nTrójkąt nie jest prawdziwy.");
     return -1;
 }
@@ -62,55 +62,62 @@ int czwarty()
 int szosty()
 {
     int n;
-    int i = 0;
-    char hex_num[100];
-    
+
     fflush(stdin);
 
     printf("\nWprowadz liczbe dziesietna: ");
     scanf("%d", &n);
 
-    printf("Liczba %d w systemie szesnastkowymi wynosi: ", n);
+    printf("Liczba %d w systemie szesnastkowymi wynosi: %x ", n, n);
 
-    while (n != 0)
-    {
-        int temp = 0;
-        temp = n % 16;
- 
-        if (temp < 10)
-        {
-            hex_num[i] = temp + 48;
-        }
-        else
-        {
-            hex_num[i] = temp + 55;
-        }
-        
-        n = n / 16;
-        i++;
-    }
- 
-    for (int j = i - 1; j >= 0; j--)
-        printf("%c", hex_num[j]);
-    
     return 0;
 }
+
+int month_n[] = {1, 3, 5, 7, 9, 11};
+int month_nn[] = {4, 6, 8, 10, 12};
 
 int siodmy()
 {
 
-    int day, month,year;
+    int day, month, year;
 
-    printf("\nPodaj dzien: ");
-    scanf("%d", &day);
+    while (day > 31 || day < 1)
+    {
+        printf("\nPodaj dzien: ");
+        scanf("%d", &day);
+    }
+    /**/
+    // 31
+    // 28 lub 29
+    // 31
+    // 30
+    // 31
+    // 30
+    // 31
+    // 30
+    // 31
+    // 30
+    // 31
+    // 30
+    //
 
-    printf("\nPodaj miesiac");
-    scanf("%d", &month);    
+    while (month > 12 || month < 1)
+    {
+        printf("\nPodaj miesiac: ");
+        scanf("%d", &month);
+    }
 
-    printf("\nPodaj rok: ");
-    scanf("%d", &year);
+    while (year < 2022)
+    {
+        printf("\nPodaj rok: ");
+        scanf("%d", &year);
+    }
 
-    
+    if (month == 2 && day == 29 && is_year_leap(year) == 0)
+    {
+        print("Nie ma 29 dni w roku nie przestepnym");
+        day = day - 1;
+    }
 
     return 0;
 }
@@ -120,31 +127,20 @@ int main()
     int result[4];
     int i = 0;
 
-    printf("Zadanie 1\n\n");
-    //result[0] = pierwszy();
+    // printf("Zadanie 1\n\n");
+    // result[0] = pierwszy();
 
-    printf("\n\nZadanie 2\n\n");
-    result[1] = drugi();
+    // printf("\n\nZadanie 2\n\n");
+    // result[1] = drugi();
 
-    printf("\n\nZadanie 3\n\n");
-    result[2] = trzeci();
+    // printf("\n\nZadanie 3\n\n");
+    // result[2] = trzeci();
 
-    printf("\n\nZadanie 4\n\n");
-    result[3] = czwarty();
+    // printf("\n\nZadanie 4\n\n");
+    // result[3] = czwarty();
 
     szosty();
 
-    while (i < 4)
-    {
-        if (result[i] != 0)
-        {
-            printf("\n\nFunkcja %d została wykonana z niepowodzeniem.", i + 1);
-            return -1;
-        }
-        i = i + 1;
-    }
-
-    printf("\n\n\nProgram został wykonany poprawnie.");
-
+    siodmy();
     return 0;
 }
